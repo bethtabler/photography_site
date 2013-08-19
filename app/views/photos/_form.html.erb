@@ -11,6 +11,13 @@
     </div>
   <% end %>
 
+  <p>Upload: <%= f.file_field :image %></p>
+
+  <% if @photo.image %>
+    <%= image_tag @photo.image %>
+  <% end %>
+
+
   <div class="field">
     <%= f.label :gallery_id %><br>
     <%= f.number_field :gallery_id %>
@@ -19,9 +26,7 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-  <p> 
-    <%= f. file_field :image %>
-  </p>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

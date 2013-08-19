@@ -37,7 +37,8 @@ gem 'carrierwave'
 gem 'protected_attributes'
 gem 'fog'
 gem 'rmagick'
-
+gem 'carrierwave_direct'
+gem 'sidekiq'
 
 
 # Use ActiveModel has_secure_password

@@ -5,6 +5,8 @@ class PhotosController < ApplicationController
   # GET /photos.json
   def index
     @photos = Photo.all
+    @uploader = Photo.new.image
+    @uploader.success_action_redirect = new_photo_url
   end
 
   # GET /photos/1
@@ -14,7 +16,7 @@ class PhotosController < ApplicationController
 
   # GET /photos/new
   def new
-    @photo = Photo.new
+    @photo = Photo.new(key: params[:key])
   end
 
   # GET /photos/1/edit
@@ -25,7 +27,6 @@ class PhotosController < ApplicationController
   # POST /photos.json
   def create
     @photo = Photo.new(photo_params)
-
     respond_to do |format|
       if @photo.save
         format.html { redirect_to @photo, notice: 'Photo was successfully created.' }
